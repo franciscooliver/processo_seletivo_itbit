@@ -1,0 +1,50 @@
+<ng-container>
+    <mat-card>
+        <h2>Cadastrar novo usuário</h2>
+
+        <form [formGroup]="form" fxLayout="column">
+            <div fxLayout="row">
+                <mat-form-field appearance="outline" fxFlex="50">
+                    <mat-label>Nome</mat-label>
+                    <input type="text" required matInput formControlName="nome">
+                    <mat-error>Nome inválido</mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" fxFlex="50" class="p-left-2">
+                    <mat-label>Data de Nascimento</mat-label>
+                    <input matInput required [matDatepicker]="picker" formControlName="dataNascimento">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+
+            </div>
+
+            <div fxLayout="row">
+
+                <mat-form-field appearance="outline" fxFlex="50">
+                    <mat-label>Email</mat-label>
+                    <input type="email" required matInput formControlName="email">
+                    <mat-error>Email inválido</mat-error>
+                </mat-form-field>
+
+                <div fxFlex="50">
+                    <mat-form-field appearance="outline" fxFlex="50" class="p-left-2">
+                        <mat-label>Senha</mat-label>
+                        <input type="password" matInput formControlName="senha">
+                    </mat-form-field>
+                    <fieldset fxFlexFill fxFlex="50" class="m-left-2">
+                        <legend>Sexo</legend>
+                        <mat-radio-group aria-label="Selecione o sexo" formControlName="sexoId">
+                            <mat-radio-button *ngFor="let s of sexosArr" [value]="s.sexoId" class="p-left-2">{{
+                                s.descricao }}
+                            </mat-radio-button>
+                        </mat-radio-group>
+                    </fieldset>
+                </div>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="end center" fxFill fxFlex="100" class="m-top-2">
+                <button mat-raised-button fxFlex="20" (click)="salvar()">Salvar</button>
+            </div>
+        </form>
+    </mat-card>
+</ng-container>

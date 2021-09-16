@@ -5,6 +5,6 @@ export interface Usuario {
   dataNascimento: string;
   email: string;
   senha: string;
-  ativo: string;
+  ativo: boolean;
   sexo: Sexo;
 }

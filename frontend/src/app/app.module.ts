@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -11,15 +11,22 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatFormFieldModule, } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
 import { HttpClientModule } from '@angular/common/http';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { UsuarioListarComponent } from './main/usuario/usuario-listar.component';
+import { UsuarioCadastrarComponent } from './main/usuario/usuario-cadastrar.component';
+import { UsuarioRelatorioComponent } from './main/usuario/usuario-relatorio.component';
 
 @NgModule({
-  declarations: [AppComponent, UsuarioListarComponent],
+  declarations: [AppComponent, UsuarioListarComponent, UsuarioCadastrarComponent, UsuarioRelatorioComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -35,8 +42,13 @@ import { UsuarioListarComponent } from './main/usuario/usuario-listar.component'
     FlexLayoutModule,
     MatTableModule,
     HttpClientModule,
+    MatInputModule,
+    MatNativeDateModule,
+    MatDatepickerModule,
+    MatRadioModule,
+    MatSnackBarModule
   ],
-  providers: [],
+  providers: [{ provide: LOCALE_ID, useValue: 'pt-BR' }],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
