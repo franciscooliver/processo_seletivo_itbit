@@ -41,11 +41,21 @@ class UserController {
     return res.status(200).json(usuarios);
   }
 
-  async update(req: Request, res: Response) {}
+  async update(req: Request, res: Response) { }
 
-  async delete(req: Request, res: Response) {}
+  async delete(req: Request, res: Response) { }
 
-  async search(req: Request, res: Response) {}
+  async search(req: Request, res: Response) {
+    const { nome, ativo } = req.query;
+
+    const usuarios = await getCustomRepository(UserRepository)
+      .createQueryBuilder("usuarios")
+      .leftJoinAndSelect("usuarios.sexo", "sexo")
+      .where("usuarios.nome like %:nome%", { nome, ativo })
+      .getMany();
+
+    return res.status(200).json(usuarios);
+  }
 }
 
 export { UserController };
