@@ -11,7 +11,7 @@ Além disto é bom ter um editor para trabalhar com o código como [VSCode](http
 
 ```bash
 # Clone este repositório
-$ git clone <https://github.com/tgmarinho/nlw1>
+$ git clone <https://github.com/franciscooliver/processo_seletico_itbit>
 
 ### 🎲 Rodando o Back End (servidor)
 
@@ -38,7 +38,6 @@ $ npm run start
 $ yarn start
 
 # O servidor inciará na porta:3000 - acesse <http://localhost:3000>
-```
 
 ### 🎲 Rodando o Front End (servidor)
 
@@ -54,3 +53,4 @@ $ npm install / yarn
 $ npm run start
 <br/>
 $ yarn start
+```
