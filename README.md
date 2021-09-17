@@ -17,24 +17,20 @@ $ git clone <https://github.com/franciscooliver/processo_seletico_itbit>
 
 ## Acesse a pasta do projeto no terminal/cmd
 $ cd processo_seletico_itbit
-<br/>
 $ cd backend
 
 ## Instale as dependências
 $ npm install
-<br/>
 $ yarn
 
 ## Edite o arquivo ormconfig.json com as credenciais do banco de dados
 
 ## Execute as migrations para criação das tabelas no banco
 $ npm run typeorm migration:run
-<br/>
 $ yarn typeorm migration:run
 
 ## Execute a aplicação em modo de desenvolvimento
 $ npm run start 
-<br/>
 $ yarn start
 
 # O servidor inciará na porta:3000 - acesse <http://localhost:3000>
@@ -43,7 +39,6 @@ $ yarn start
 
 ## Acesse a pasta do projeto no terminal/cmd
 $ cd processo_seletico_itbit
-<br/>
 $ cd frontend
 
 ## Instale as dependências
@@ -51,6 +46,5 @@ $ npm install / yarn
 
 ## Execute a aplicação em modo de desenvolvimento
 $ npm run start
-<br/>
 $ yarn start
 ```
