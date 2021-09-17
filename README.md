@@ -1,4 +1,4 @@
-# processo_seletico_itbit
+# processo_seletivo_itbit
 <p>Projeto implementado para processo seletivo da empresa Itbit, foram utilizadas as tecnologias Node JS no backend e Angular 12 no frontend</p>
 
 ## Executando o projeto
@@ -11,12 +11,12 @@ Além disto é bom ter um editor para trabalhar com o código como [VSCode](http
 
 ```bash
 # Clone este repositório
-$ git clone <https://github.com/franciscooliver/processo_seletico_itbit>
+$ git clone <https://github.com/franciscooliver/processo_seletivo_itbit>
 
 ### 🎲 Rodando o Back End (servidor)
 
 ## Acesse a pasta do projeto no terminal/cmd
-$ cd processo_seletico_itbit
+$ cd processo_seletivo_itbit
 $ cd backend
 
 ## Instale as dependências
@@ -38,7 +38,7 @@ $ yarn start
 ### 🎲 Rodando o Front End (servidor)
 
 ## Acesse a pasta do projeto no terminal/cmd
-$ cd processo_seletico_itbit
+$ cd processo_seletivo_itbit
 $ cd frontend
 
 ## Instale as dependências
