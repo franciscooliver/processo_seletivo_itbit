@@ -44,4 +44,6 @@ $ cd frontend
 $ npm install / yarn
 
 ## Execute a aplicação em modo de desenvolvimento
-$ npm run start / yarn start
+$ npm run start
+<br/>
+$ yarn start
