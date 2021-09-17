@@ -9,6 +9,10 @@ Antes de começar, você vai precisar ter instalado em sua máquina as seguintes
 [Git](https://git-scm.com), [Node.js](https://nodejs.org/en/). 
 Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/)
 
+```bash
+# Clone este repositório
+$ git clone <https://github.com/tgmarinho/nlw1>
+
 ### 🎲 Rodando o Back End (servidor)
 
 ## Acesse a pasta do projeto no terminal/cmd
@@ -32,6 +36,9 @@ $ yarn typeorm migration:run
 $ npm run start 
 <br/>
 $ yarn start
+
+# O servidor inciará na porta:3000 - acesse <http://localhost:3000>
+```
 
 ### 🎲 Rodando o Front End (servidor)
 
