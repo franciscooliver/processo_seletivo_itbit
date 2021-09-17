@@ -11,27 +11,35 @@ Além disto é bom ter um editor para trabalhar com o código como [VSCode](http
 
 ### 🎲 Rodando o Back End (servidor)
 
-# Acesse a pasta do projeto no terminal/cmd
+## Acesse a pasta do projeto no terminal/cmd
 $ cd processo_seletico_itbit
+<br/>
 $ cd backend
 
-# Instale as dependências
+## Instale as dependências
 $ npm install / yarn
 
-# Edite o arquivo ormconfig.json com as credenciais do banco de dados
+## Edite o arquivo ormconfig.json com as credenciais do banco de dados
 
-# Execute a aplicação em modo de desenvolvimento
-$ npm run start / yarn start
+## Execute as migrations para criação das tabelas no banco
+$ npm run typeorm migration:run
+<br/>
+$ yarn typeorm migration:run
+
+## Execute a aplicação em modo de desenvolvimento
+$ npm run start 
+<br/>
+$ yarn start
 
 ### 🎲 Rodando o Front End (servidor)
 
-# Acesse a pasta do projeto no terminal/cmd
+## Acesse a pasta do projeto no terminal/cmd
 $ cd processo_seletico_itbit
 <br/>
 $ cd frontend
 
-# Instale as dependências
+## Instale as dependências
 $ npm install / yarn
 
-# Execute a aplicação em modo de desenvolvimento
+## Execute a aplicação em modo de desenvolvimento
 $ npm run start / yarn start
