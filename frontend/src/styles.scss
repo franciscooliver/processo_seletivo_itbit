@@ -9,3 +9,21 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .success-snackbar {
     background-color: rgb(79, 153, 79);
 }
+
+.p-left-2 {
+    padding-left: 0.5rem !important;
+
+    @media(max-width:767px) {
+        padding-left: 0 !important;
+    }
+}
+.m-left-2 {
+    margin-left: 0.5rem !important;
+
+    @media(max-width:767px) {
+        margin-left: 0 !important;
+    }
+}
+.m-top-2 {
+    margin-top: 0.5rem !important;
+}

@@ -1,6 +1,6 @@
 <ng-container>
     <mat-card>
-        <h2>Cadastrar novo usuário</h2>
+        <h2>{{ emEdicao ? 'Editar usuario: (' + usuario.nome + ')' : 'Cadastrar novo usuário' }}</h2>
 
         <form [formGroup]="form" fxLayout="column">
             <div fxLayout="row">
@@ -21,22 +21,33 @@
 
             <div fxLayout="row">
 
-                <mat-form-field appearance="outline" fxFlex="50">
+                <mat-form-field appearance="outline" [fxFlex]="emEdicao ? '25' : '50'">
                     <mat-label>Email</mat-label>
                     <input type="email" required matInput formControlName="email">
                     <mat-error>Email inválido</mat-error>
                 </mat-form-field>
 
-                <div fxFlex="50">
-                    <mat-form-field appearance="outline" fxFlex="50" class="p-left-2">
+                <div [fxFlex]="emEdicao ? '75' : '50'">
+                    <mat-form-field appearance="outline" [fxFlex]="emEdicao ? '33.333' : '50' " class="p-left-2">
                         <mat-label>Senha</mat-label>
                         <input type="password" matInput formControlName="senha">
                     </mat-form-field>
-                    <fieldset fxFlexFill fxFlex="50" class="m-left-2">
+
+                    <fieldset fxFlexFill [fxFlex]="emEdicao ? '33.333' : 50" class="m-left-2">
                         <legend>Sexo</legend>
                         <mat-radio-group aria-label="Selecione o sexo" formControlName="sexoId">
                             <mat-radio-button *ngFor="let s of sexosArr" [value]="s.sexoId" class="p-left-2">{{
                                 s.descricao }}
+                            </mat-radio-button>
+                        </mat-radio-group>
+                    </fieldset>
+
+                    <fieldset *ngIf="emEdicao" fxFlexFill [fxFlex]="emEdicao ? '33.333' : 50" class="m-left-2">
+                        <legend>Status</legend>
+                        <mat-radio-group aria-label="Selecione o sexo" formControlName="ativo">
+                            <mat-radio-button [value]="true">Ativo
+                            </mat-radio-button>
+                            <mat-radio-button [value]="false">Inativo
                             </mat-radio-button>
                         </mat-radio-group>
                     </fieldset>

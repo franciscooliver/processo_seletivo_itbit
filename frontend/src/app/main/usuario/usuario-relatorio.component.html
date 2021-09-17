@@ -4,51 +4,78 @@
 
         <form [formGroup]="form" fxLayout="column">
             <div fxLayout="row" fxFlexAlignment="start center">
-                <mat-form-field appearance="outline" fxFlex="50">
-                    <mat-label>Nome</mat-label>
-                    <input type="text" required matInput formControlName="nome">
-                </mat-form-field>
+                <div fxFlex="75" fxFill>
+                    <fieldset>
+                        <legend>Filtros</legend>
+                        <mat-form-field appearance="outline" fxFlex="50">
+                            <mat-label>Nome</mat-label>
+                            <input type="text" required matInput formControlName="nome">
+                        </mat-form-field>
 
-                <div fxLayout="column" fxFlex="25" fxFlexAlignment="center center" class="p-lef-2">
-                    <mat-radio-group fxLayout="row" fxFlexAlignment="center center" fxFill aria-label="Selecione o sexo"
-                        formControlName="ativo">
-                        <mat-radio-button fxFlexAlignment="center" value="1">Ativo</mat-radio-button>
-                        <mat-radio-button fxFlexAlignment="center" value="0" class="p-left-2">Inativo</mat-radio-button>
-                    </mat-radio-group>
+                        <div fxLayout="column" fxFlex="25" fxFlexAlignment="center center" class="p-left-2">
+                            <mat-radio-group fxLayout="row" fxFlexAlignment="center center" fxFlex="100"
+                                aria-label="Selecione o sexo" formControlName="ativo">
+                                <mat-radio-button fxFlexAlignment="center" value="1">Ativo</mat-radio-button>
+                                <mat-radio-button fxFlexAlignment="center" value="0" class="p-left-2">Inativo
+                                </mat-radio-button>
+                            </mat-radio-group>
+                        </div>
+                    </fieldset>
                 </div>
 
-                <button mat-raised-button fxFill fxFlex="25" (click)="buscar()">Buscar</button>
+                <button mat-raised-button fxFill fxFlex="25" class="m-left-2 m-top-2" (click)="buscar()">Buscar</button>
             </div>
         </form>
 
-        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" fxFill>
+        <div *ngIf="dataSource.data.length === 0" class="no-results m-top-2" fxLayoutAlign="center">
+            <p class="text-center">Os resultados da busca aparecerão aqui...</p>
+        </div>
+
+        <table *ngIf="dataSource.data.length > 0" mat-table [dataSource]="dataSource" class="mat-elevation-z2" fxFill>
             <ng-container matColumnDef="nome">
                 <th mat-header-cell *matHeaderCellDef>Nome</th>
-                <td mat-cell *matCellDef="let element">{{ element.nome }}</td>
+                <td mat-cell *matCellDef="let usuario">{{ usuario.nome }}</td>
             </ng-container>
 
-            <!-- Name Column -->
             <ng-container matColumnDef="dataNascimento">
                 <th mat-header-cell *matHeaderCellDef>Data Nascimento</th>
-                <td mat-cell *matCellDef="let element">{{ element.dataNascimento }}</td>
+                <td mat-cell *matCellDef="let usuario">{{ usuario.dataNascimento }}</td>
             </ng-container>
 
-            <!-- Weight Column -->
             <ng-container matColumnDef="email">
                 <th mat-header-cell *matHeaderCellDef>Email</th>
-                <td mat-cell *matCellDef="let element">{{ element.email }}</td>
+                <td mat-cell *matCellDef="let usuario">{{ usuario.email }}</td>
             </ng-container>
 
-            <!-- Symbol Column -->
             <ng-container matColumnDef="sexo">
                 <th mat-header-cell *matHeaderCellDef>Sexo</th>
-                <td mat-cell *matCellDef="let element">{{ element.sexo.descricao }}</td>
+                <td mat-cell *matCellDef="let usuario">{{ usuario.sexo.descricao }}</td>
             </ng-container>
 
-            <!-- Symbol Column -->
             <ng-container matColumnDef="ativo">
                 <th mat-header-cell *matHeaderCellDef>ativo</th>
-                <td mat-cell *matCellDef="let element">{{ element.ativo == 1 ? 'Sim' : 'Não' }}</td>
+                <td mat-cell *matCellDef="let usuario">{{ usuario.ativo == 1 ? 'Sim' : 'Não' }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="acao">
+                <th mat-header-cell *matHeaderCellDef>Ações</th>
+                <td mat-cell *matCellDef="let usuario">
+                    <div fxLayout="row">
+                        <a href="javascript:void(0)" (click)="editar(usuario)" matTooltip="Editar"
+                            matTooltipClass="example-tooltip-red">
+                            <mat-icon aria-hidden="false" aria-label="Edit icon">edit</mat-icon>
+                        </a>
+                        <a href="javascript:void(0)" (click)="ativar(usuario)" matTooltip="Ativar/Inativar"
+                            matTooltipClass="example-tooltip-red">
+                            <mat-icon aria-hidden="false" aria-label="Check icon">check</mat-icon>
+                        </a>
+                        <a href="javascript:void(0)" class="delete-icon" matTooltip="Remover"
+                            matTooltipClass="example-tooltip-red" [swal]="{ title: 'Deseja mesmo deletar o usuário?',  
+                            showCancelButton: true }" (confirm)="deletar(usuario.usuarioId)">
+                            <mat-icon aria-hidden="false" aria-label="Delete icon">delete</mat-icon>
+                        </a>
+                    </div>
+                </td>
             </ng-container>
 
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
