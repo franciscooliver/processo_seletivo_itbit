@@ -27,6 +27,7 @@ $ npm run start / yarn start
 
 # Acesse a pasta do projeto no terminal/cmd
 $ cd processo_seletico_itbit
+<br/>
 $ cd frontend
 
 # Instale as dependências
