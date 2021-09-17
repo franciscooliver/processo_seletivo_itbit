@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatTableDataSource } from '@angular/material/table';
-import { Usuario } from '../models/usuario';
-import { UsuarioService } from './usuario.service';
+import { Usuario } from '../../models/usuario';
+import { dateBr } from '../../utils/date-format';
+import { UsuarioService } from '../usuario.service';
 
 @Component({
   selector: 'app-usuario-listar',
@@ -29,7 +30,11 @@ export class UsuarioListarComponent implements OnInit {
 
   listar() {
     this._usuarioService.buscar().subscribe((res) => {
-      this.dataSource.data = res
+      this.dataSource.data = res;
     });
+  }
+
+  data(data: string) {
+    return dateBr(data);
   }
 }

@@ -1,6 +1,10 @@
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { MatDialogModule, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import {
+  MatDialogModule,
+  MatDialogRef,
+  MAT_DIALOG_DATA,
+} from '@angular/material/dialog';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,7 +16,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { MatFormFieldModule, } from '@angular/material/form-field';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
@@ -24,12 +28,17 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
-import { UsuarioListarComponent } from './main/usuario/usuario-listar.component';
-import { UsuarioCadastrarComponent } from './main/usuario/usuario-cadastrar.component';
-import { UsuarioRelatorioComponent } from './main/usuario/usuario-relatorio.component';
+import { UsuarioCadastrarComponent } from './main/usuario/usuario-cadastrar/usuario-cadastrar.component';
+import { UsuarioListarComponent } from './main/usuario/usuario-listar/usuario-listar.component';
+import { UsuarioRelatorioComponent } from './main/usuario/usuario-relatorio/usuario-relatorio.component';
 
 @NgModule({
-  declarations: [AppComponent, UsuarioListarComponent, UsuarioCadastrarComponent, UsuarioRelatorioComponent],
+  declarations: [
+    AppComponent,
+    UsuarioListarComponent,
+    UsuarioCadastrarComponent,
+    UsuarioRelatorioComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -53,13 +62,12 @@ import { UsuarioRelatorioComponent } from './main/usuario/usuario-relatorio.comp
     MatSnackBarModule,
     MatDialogModule,
     MatTooltipModule,
-
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'pt-BR' },
     { provide: MAT_DIALOG_DATA, useValue: {} },
-    { provide: MatDialogRef, useValue: {} }
+    { provide: MatDialogRef, useValue: {} },
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

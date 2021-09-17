@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
-import { UsuarioCadastrarComponent } from './main/usuario/usuario-cadastrar.component';
-import { UsuarioListarComponent } from './main/usuario/usuario-listar.component';
-import { UsuarioRelatorioComponent } from './main/usuario/usuario-relatorio.component';
+import { UsuarioRelatorioComponent } from './main/usuario/usuario-relatorio/usuario-relatorio.component';
+import { UsuarioCadastrarComponent } from './main/usuario/usuario-cadastrar/usuario-cadastrar.component';
+import { UsuarioListarComponent } from './main/usuario/usuario-listar/usuario-listar.component';
 
 const routes: Routes = [
   { path: '**', component: AppComponent, outlet: 'initial-panel' },
@@ -16,4 +16,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

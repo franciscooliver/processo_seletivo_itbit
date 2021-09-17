@@ -5,31 +5,31 @@
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z2" fxFill>
       <ng-container matColumnDef="nome">
         <th mat-header-cell *matHeaderCellDef>Nome</th>
-        <td mat-cell *matCellDef="let element">{{ element.nome }}</td>
+        <td mat-cell *matCellDef="let usuario">{{ usuario.nome }}</td>
       </ng-container>
 
-      <!-- Name Column -->
       <ng-container matColumnDef="dataNascimento">
         <th mat-header-cell *matHeaderCellDef>Data Nascimento</th>
-        <td mat-cell *matCellDef="let element">{{ element.dataNascimento }}</td>
+        <td mat-cell *matCellDef="let usuario">
+          {{ data(usuario.dataNascimento) }}
+        </td>
       </ng-container>
 
-      <!-- Weight Column -->
       <ng-container matColumnDef="email">
         <th mat-header-cell *matHeaderCellDef>Email</th>
-        <td mat-cell *matCellDef="let element">{{ element.email }}</td>
+        <td mat-cell *matCellDef="let usuario">{{ usuario.email }}</td>
       </ng-container>
 
-      <!-- Symbol Column -->
       <ng-container matColumnDef="sexo">
         <th mat-header-cell *matHeaderCellDef>Sexo</th>
-        <td mat-cell *matCellDef="let element">{{ element.sexo.descricao }}</td>
+        <td mat-cell *matCellDef="let usuario">{{ usuario.sexo.descricao }}</td>
       </ng-container>
 
-      <!-- Symbol Column -->
       <ng-container matColumnDef="ativo">
         <th mat-header-cell *matHeaderCellDef>ativo</th>
-        <td mat-cell *matCellDef="let element">{{ element.ativo == 1 ? 'Sim' : 'Não' }}</td>
+        <td mat-cell *matCellDef="let usuario">
+          {{ usuario.ativo == 1 ? "Sim" : "Não" }}
+        </td>
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
