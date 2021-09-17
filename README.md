@@ -17,7 +17,9 @@ $ cd processo_seletico_itbit
 $ cd backend
 
 ## Instale as dependências
-$ npm install / yarn
+$ npm install
+<br/>
+$ yarn
 
 ## Edite o arquivo ormconfig.json com as credenciais do banco de dados
 
