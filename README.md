@@ -42,7 +42,8 @@ $ cd processo_seletico_itbit
 $ cd frontend
 
 ## Instale as dependências
-$ npm install / yarn
+$ npm install 
+$ yarn
 
 ## Execute a aplicação em modo de desenvolvimento
 $ npm run start
