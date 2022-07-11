@@ -1,10 +1,10 @@
 import { Request, Response } from "express";
 import { getCustomRepository, getRepository } from "typeorm";
-import { SexoRepository } from "../repositories/SexoRepository";
+import { SexRepository } from "../repositories/SexRepository";
 
-class SexoController {
+class SexController {
   async all(req: Request, res: Response) {
-    const sexos = await getCustomRepository(SexoRepository).find()
+    const sexos = await getCustomRepository(SexRepository).find()
 
     return res.status(200).json(sexos);
   }
@@ -16,4 +16,4 @@ class SexoController {
   async search(req: Request, res: Response) { }
 }
 
-export { SexoController };
+export { SexController };

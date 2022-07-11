@@ -1,0 +1,29 @@
+FROM node:14 as node
+
+WORKDIR /usr/app/
+
+COPY package*.json /usr/app/
+
+RUN npm install
+
+COPY . .
+
+RUN npm run build
+
+RUN node env.js
+
+FROM nginx:latest
+
+RUN rm -rf /usr/share/nginx/html/*
+
+COPY --from=node /usr/app/dist/painel-usuarios /usr/share/nginx/html
+
+RUN chmod 777 -R /usr/share/nginx/html
+
+COPY default.conf /etc/nginx/conf.d/default.conf
+
+CMD ["nginx", "-g", "daemon off;"]
+
+EXPOSE 80
+
+

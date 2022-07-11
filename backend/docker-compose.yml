@@ -1,0 +1,61 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:5.7
+    container_name: "server-db"
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: "rootpw"
+      # MYSQL_USER: teste
+      MYSQL_PASSWORD: user_123
+      MYSQL_DATABASE: db_teste
+    networks:
+      - app-tier
+    ports:
+      - 3308:3306
+    volumes:
+      - mysql_db:/var/lib/mysql
+
+  # postgres:
+  #   image: 'postgres:latest'
+  #   environment:
+  #     POSTGRES_PASSWORD: postgres
+  #     POSTGRES_USER: postgres
+  #     POSTGRES_DB: pg_db
+  #   volumes:
+  #     - ./pgdata:/var/lib/postgresql/data
+  #   ports:
+  #     - "5432:5432"
+
+  server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: server-api
+    working_dir: /usr/app
+    # restart: always
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/usr/app
+    links:
+      - "mysql"
+    networks:
+      - app-tier
+    environment:
+      PORT: 3000
+      DB_DRIVER: mysql
+      DB_HOST: server-db
+      DB_USER: root
+      DB_PASSWORD: rootpw
+      DB_NAME: db_teste
+      DB_PORT: 3306
+    
+volumes:
+  node_modules: {}
+  mysql_db: {}
+
+networks:
+  app-tier:
+    external: true

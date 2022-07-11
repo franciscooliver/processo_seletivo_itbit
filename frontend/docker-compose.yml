@@ -1,0 +1,12 @@
+version: '3.7'
+
+services:
+  client:
+    build: .
+    volumes:
+      - .:/usr/app
+    ports:
+      - "4000:80"
+      - '4202:4202'
+    environment:
+      - SERVER_URL=http://testapp.com.br

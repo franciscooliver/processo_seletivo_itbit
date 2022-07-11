@@ -1,8 +1,8 @@
 import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm"
-import { Sexo } from "./Sexo"
+import { Sex } from "./Sex"
 
 @Entity('usuarios')
-class Usuario {
+class User {
     @PrimaryGeneratedColumn()
     readonly usuarioId: number
 
@@ -24,9 +24,9 @@ class Usuario {
     @Column()
     sexoId: number
 
-    @ManyToOne(() => Sexo)
+    @ManyToOne(() => Sex)
     @JoinColumn({ name: 'sexoId' })
-    sexo: Sexo;
+    sexo: Sex;
 }
 
-export { Usuario }
+export { User }

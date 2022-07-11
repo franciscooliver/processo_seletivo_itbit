@@ -1,8 +1,7 @@
 import { Column, CreateDateColumn, Entity, ManyToOne, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm"
-import { Usuario } from "./Usuario";
 
 @Entity('sexo')
-class Sexo {
+class Sex {
     @PrimaryGeneratedColumn()
     readonly sexoId: number
 
@@ -13,4 +12,4 @@ class Sexo {
     //usuario: Usuario;
 }
 
-export { Sexo }
+export { Sex }

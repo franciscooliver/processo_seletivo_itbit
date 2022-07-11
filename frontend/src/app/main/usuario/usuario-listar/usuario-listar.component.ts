@@ -30,6 +30,8 @@ export class UsuarioListarComponent implements OnInit {
 
   listar() {
     this._usuarioService.buscar().subscribe((res) => {
+      console.log(res);
+      
       this.dataSource.data = res;
     });
   }

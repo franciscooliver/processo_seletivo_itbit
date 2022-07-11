@@ -1,18 +1,19 @@
 import { Router } from "express";
-import { SexoController } from "../controllers/SexoController";
+import { SexController } from "../controllers/SexController";
 import { UserController } from "../controllers/UserController";
 
 const router = Router();
 
 const userController = new UserController();
-const sexoController = new SexoController();
+const sexoController = new SexController();
 
-router.post("/api/usuarios", userController.create);
-router.get("/api/usuarios", userController.all);
-router.get("/api/usuarios/filtro", userController.search);
-router.put("/api/usuarios/:id", userController.update);
-router.delete("/api/usuarios/:id", userController.delete);
-router.put("/api/usuarios/ativo/:id", userController.enableDisableUser);
+router.get("/", (req, res) => res.sendStatus(200));
+router.post("/api/usuario", userController.create);
+router.get("/api/usuario", userController.all);
+router.get("/api/usuario/filtro", userController.search);
+router.put("/api/usuario/:id", userController.update);
+router.delete("/api/usuario/:id", userController.delete);
+router.put("/api/usuario/ativo/:id", userController.enableDisableUser);
 
 router.get("/api/sexo", sexoController.all);
 

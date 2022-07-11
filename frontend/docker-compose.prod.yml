@@ -1,0 +1,15 @@
+version: '3.7'
+
+services:
+  client:
+    build: 
+      context: .
+      dockerfile: Dockerfile.prod
+    # image: franciscoalves90/web:1.0.0
+    container_name: painel-usuarios
+    volumes:
+      - .:/usr/app/
+    ports:
+      - "4200:80"
+    environment:
+      - SERVER_URL=http://192.168.0.8

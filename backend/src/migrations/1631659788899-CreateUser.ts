@@ -31,7 +31,7 @@ export class CreateUser1631659788899 implements MigrationInterface {
                     {
                         name: 'senha',
                         type: 'varchar',
-                        length: '30'
+                        length: '200'
                     },
                     {
                         name: 'ativo',

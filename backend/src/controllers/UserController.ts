@@ -1,6 +1,8 @@
 import { Request, Response } from "express";
 import { getCustomRepository, getRepository } from "typeorm";
 import { UserRepository } from "../repositories/UserRepository";
+import { getPasswordHash } from "../utils/utils";
+import bcrypt from "bcrypt";
 
 class UserController {
   async create(req: Request, res: Response) {
@@ -18,18 +20,20 @@ class UserController {
       });
     }
 
-    const user = userRepository.create({
-      nome,
-      dataNascimento,
-      email,
-      senha,
-      ativo,
-      sexoId,
+    getPasswordHash(senha, async (err, hash) => {
+      const user = userRepository.create({
+        nome,
+        dataNascimento,
+        email,
+        senha: hash,
+        ativo,
+        sexoId,
+      });
+
+      await userRepository.save(user);
+
+      return res.status(201).json(user);
     });
-
-    await userRepository.save(user);
-
-    return res.status(201).json(user);
   }
 
   async all(req: Request, res: Response) {
